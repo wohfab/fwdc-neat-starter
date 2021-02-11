@@ -1,4 +1,12 @@
 {
+  "name": "fwdc-neat-starter",
+  "description": "Made by Fabian Wohlgemuth - digital creative.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wohfab/fwdc-neat-starter.git"
+  },
   "scripts": {
     "start": "npm-run-all --parallel css eleventy",
     "eleventy": "eleventy --serve",

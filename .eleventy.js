@@ -1,7 +1,38 @@
 const yaml = require("js-yaml");
 const { DateTime } = require("luxon");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const htmlmin = require("html-minifier");
+const markdownIt = require("markdown-it");
+const Image = require("@11ty/eleventy-img");
+
+async function imageShortcode(src, alt, sizes) {
+  let metadata = await Image(src, {
+    widths: [600, 900],
+    formats: ["webp", "jpeg"],
+    urlPath: "./static/img/",
+    outputDir: "./_site/static/img/",
+    sharpJpegOptions: {
+      quality: 70,
+      progressive: true,
+    },
+    sharpPngOptions: {
+      quality: 70,
+      progressive: true,
+    },
+    sharpWebpOptions: {
+      quality: 70,
+    },
+  });
+
+  let imageAttributes = {
+    alt,
+    sizes,
+    loading: "lazy",
+    decoding: "async",
+  };
+
+  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+  return Image.generateHTML(metadata, imageAttributes);
+}
 
 module.exports = function (eleventyConfig) {
   // Disable automatic use of your .gitignore
@@ -16,9 +47,11 @@ module.exports = function (eleventyConfig) {
       "dd LLL yyyy"
     );
   });
-
-  // Syntax Highlighting for Code blocks
-  eleventyConfig.addPlugin(syntaxHighlight);
+  // current year
+  eleventyConfig.addShortcode(
+    "currentYear",
+    () => `${new Date().getFullYear()}`
+  );
 
   // To Support .yaml Extension in _data
   // You may remove this if you can use JSON
@@ -34,8 +67,6 @@ module.exports = function (eleventyConfig) {
     "./_tmp/static/css/style.css": "./static/css/style.css",
     "./src/admin/config.yml": "./admin/config.yml",
     "./node_modules/alpinejs/dist/alpine.js": "./static/js/alpine.js",
-    "./node_modules/prismjs/themes/prism-tomorrow.css":
-      "./static/css/prism-tomorrow.css",
   });
 
   // Copy Image Folder to /_site
@@ -51,13 +82,23 @@ module.exports = function (eleventyConfig) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
-        collapseWhitespace: true
+        collapseWhitespace: true,
       });
       return minified;
     }
 
     return content;
   });
+
+  // FILTERS
+  eleventyConfig.addFilter("md", function (content = "") {
+    return markdownIt({ html: true }).render(content);
+  });
+
+  // SHORTCODES
+  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
+  eleventyConfig.addLiquidShortcode("image", imageShortcode);
+  eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
   // Let Eleventy transform HTML files as nunjucks
   // So that we can use .html instead of .njk
