@@ -1,4 +1,10 @@
 ---
 name: FWDC Neat Starter
 author: Fabian Wohlgemuth - digital creative.
-url: "https://fwdc-neat-starter.netlify.app/"
+url: "https://fwdc-neat-starter.netlify.app"
+
+creator:
+  name: fwdc.
+  author: fabian wohlgemuth
+  url: "https://fabianwohlgemuth.de"
+  # sourcecode: "https://github.com/wohfab/fwdc-neat-starter"

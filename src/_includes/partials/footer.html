@@ -1,18 +1,21 @@
-<footer
-  class="{{ 'fixed' if path == 'home' }} bottom-0 text-center w-full py-4"
->
+<footer class="bottom-0 w-full py-4 text-center">
   <small class="text-gray-500"
-    >Copyright © {{ settings.name }} 2020. Made with ❤ by
-    <a href="{{settings.url}}" target="_blank" class="underline"
-      >{{ settings.author }}</a
-    >
-    •
+    >&copy; {{ settings.name | lower | safe }}. {% currentYear %}. created with
+    help from
     <a
-      href="https://github.com/surjithctly/neat-starter"
+      href="{{settings.creator.url | safe }}"
+      target="_blank"
+      class="underline"
+      rel="noopener"
+      >{{ settings.creator.author | safe }}</a
+    >{% if settings.creator.sourcecode %}|
+    <a
+      href="{{ settings.creator.sourcecode | safe }}"
       class="underline"
       target="_blank"
       rel="noopener"
-      >View on Github</a
+      >source code</a
     >
+    {% endif %}.
   </small>
 </footer>
