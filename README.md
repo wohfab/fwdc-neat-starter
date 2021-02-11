@@ -2,7 +2,9 @@
 
 Starter Template for **N**etlify CMS, **E**leventy, **A**lphine JS & **T**ailwind CSS
 
-Forked from: [https://neat-starter.netlify.app/](https://neat-starter.netlify.app/)
+Live Demo on [fwdc-neat-starter.netlify.app](https://fwdc-neat-starter.netlify.app).
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ad35259d-e9f7-49f9-a8d8-ee342d8bb2e3/deploy-status)](https://app.netlify.com/sites/fwdc-neat-starter/deploys)
 
 ### Technologies used
 
