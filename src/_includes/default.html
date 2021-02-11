@@ -18,9 +18,8 @@
     {% endif %}
   </head>
   <body>
-    {% include "./partials/header.html" %}
-    {{ content | safe }}
-    {% include "./partials/footer.html" %}
+    {% include "./partials/header.html" %} {{ content | safe }} {% include
+    "./partials/footer.html" %}
 
     <script src="/static/js/alpine.js"></script>
 

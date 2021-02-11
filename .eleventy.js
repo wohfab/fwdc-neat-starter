@@ -86,7 +86,6 @@ module.exports = function (eleventyConfig) {
       });
       return minified;
     }
-
     return content;
   });
 
@@ -100,8 +99,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLiquidShortcode("image", imageShortcode);
   eleventyConfig.addJavaScriptFunction("image", imageShortcode);
 
-  // Let Eleventy transform HTML files as nunjucks
-  // So that we can use .html instead of .njk
   return {
     dir: {
       input: "src",
