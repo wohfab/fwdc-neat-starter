@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title }} | {{ site.settings.name }}</title>
+    <title>{{ title }} | {{ settings.site.name }}</title>
     {% if description %}
-    <meta name="description" content="{{ site.settings.description }}" />
+    <meta name="description" content="{{ settings.site.description }}" />
     {% endif %} {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
     {% if prism == true %}
