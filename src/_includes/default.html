@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ settings.site.lang }}">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{title}}</title>
+    <title>{{ title }} | {{ site.settings.name }}</title>
     {% if description %}
-    <meta name="description" content="{{description}}" />
+    <meta name="description" content="{{ site.settings.description }}" />
     {% endif %} {% block head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
     {% if prism == true %}
@@ -18,8 +18,9 @@
     {% endif %}
   </head>
   <body>
-    {% include "./partials/navbar.html" %} {{ content | safe }} {% include
-    "./partials/footer.html" %}
+    {% include "./partials/header.html" %}
+    {{ content | safe }}
+    {% include "./partials/footer.html" %}
 
     <script src="/static/js/alpine.js"></script>
 
