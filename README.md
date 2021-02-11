@@ -4,6 +4,8 @@ Starter Template for **N**etlify CMS, **E**leventy, **A**lphine JS & **T**ailwin
 
 Live Demo on [![Netlify Status](https://api.netlify.com/api/v1/badges/ad35259d-e9f7-49f9-a8d8-ee342d8bb2e3/deploy-status)](https://app.netlify.com/sites/fwdc-neat-starter/deploys)
 
+https://app.netlify.com/start/deploy?repository=https://github.com/wohfab/fwdc-neat-starter
+
 ### Technologies used
 
 - [Netlify CMS](https://www.netlifycms.org/)
