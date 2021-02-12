@@ -1,7 +1,7 @@
 ---
 site:
   name: FWDC Neat Starter
-  description: Netlify, Eleventy, Alpine JS, Tailwind CSS Starter Template
+  description: "Netlify CMS, Eleventy (11ty), Alpine JS, & Tailwind CSS Starter Template"
   author: Fabian Wohlgemuth - digital creative.
   url: "https://fwdc-neat-starter.netlify.app"
   lang: en

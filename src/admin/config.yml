@@ -35,7 +35,7 @@ collections:
     files:
       - label: "Navigation"
         name: "items"
-        file: "src/_data/navigation.yaml"
+        file: "src/_data/navigation.yml"
         fields:
           - label: Nav Items
             name: items
@@ -47,7 +47,7 @@ collections:
               - { label: URL, name: url, widget: string }
       - label: "Quick Links"
         name: "links"
-        file: "src/_data/quicklinks.yaml"
+        file: "src/_data/quicklinks.yml"
         fields:
           - label: Nav Items
             name: links
@@ -59,7 +59,7 @@ collections:
               - { label: Description, name: desc, widget: string }
       - label: "Meta Settings"
         name: "settings"
-        file: "src/_data/settings.yaml"
+        file: "src/_data/settings.yml"
         fields:
           - { label: Name, name: name, widget: string }
           - { label: Author, name: author, widget: string }

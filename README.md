@@ -1,10 +1,8 @@
 # FWDC Neat Starter
 
-Starter Template for **N**etlify CMS, **E**leventy, **A**lphine JS & **T**ailwind CSS
+Starter Template for **N**etlify CMS, **E**leventy, **A**lphine JS & **T**ailwind CSS.
 
-Live Demo on [![Netlify Status](https://api.netlify.com/api/v1/badges/ad35259d-e9f7-49f9-a8d8-ee342d8bb2e3/deploy-status)](https://app.netlify.com/sites/fwdc-neat-starter/deploys)
-
-[Deploy to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/wohfab/fwdc-neat-starter)
+Check the Live Demo on Netlify: [![Netlify Status](https://api.netlify.com/api/v1/badges/ad35259d-e9f7-49f9-a8d8-ee342d8bb2e3/deploy-status)](https://app.netlify.com/sites/fwdc-neat-starter/deploys) or [deploy to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/wohfab/fwdc-neat-starter) yourself.
 
 ### Technologies used
 
@@ -13,40 +11,19 @@ Live Demo on [![Netlify Status](https://api.netlify.com/api/v1/badges/ad35259d-e
 - [Alpine.js](https://github.com/alpinejs/alpine)
 - [Tailwind CSS](https://tailwindcss.com/)
 
-## Getting Started
-
-Detailed instructions: [Check it out](https://blog.surjithctly.in/neat-stack-create-a-static-website-with-netlify-cms-eleventy-alpinejs-and-tailwindcss)
-
-### 1\. Clone this Repository
+### Quick Start
 
 ```
 git clone https://github.com/wohfab/fwdc-neat-starter.git
-```
-
-### 2\. Navigate to the directory
-
-```
 cd fwdc-neat-starter
-```
-
-### 3\. Install dependencies
-
-```
 npm install
-```
-
-### 4\. Build the project to generate the first CSS
-
-```
 npm run build
 ```
-
-### 5\. Run Eleventy
 
 ```
 npm run start
 ```
 
-## Original Author
+## Information
 
-Surjith S M ( [@surjithctly](https://surjithctly.in/) )
+This project is a fork of the NEAT-starter by Surjith S M ([@surjithctly](https://surjithctly.in/)). They also wrote [detailed instructions on their blog](https://blog.surjithctly.in/neat-stack-create-a-static-website-with-netlify-cms-eleventy-alpinejs-and-tailwindcss).

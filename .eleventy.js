@@ -53,9 +53,9 @@ module.exports = function (eleventyConfig) {
     () => `${new Date().getFullYear()}`
   );
 
-  // To Support .yaml Extension in _data
+  // To Support .yml Extension in _data
   // You may remove this if you can use JSON
-  eleventyConfig.addDataExtension("yaml", (contents) =>
+  eleventyConfig.addDataExtension("yml", (contents) =>
     yaml.safeLoad(contents)
   );
 
