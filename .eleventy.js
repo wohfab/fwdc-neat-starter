@@ -4,8 +4,8 @@ const {DateTime} = require('luxon');
 const htmlmin = require('html-minifier');
 const markdownIt = require('markdown-it');
 const Image = require('@11ty/eleventy-img');
+const rssPlugin = require('@11ty/eleventy-plugin-rss');
 
-// Functions
 
 // Image shortcode
 async function imageShortcode(src, alt, sizes) {
@@ -38,33 +38,38 @@ async function imageShortcode(src, alt, sizes) {
 }
 
 // Eleventy settings
-module.exports = function (eleventyConfig) {
+module.exports = function (config) {
+  // Layout aliases
+  config.addLayoutAlias('default', 'layouts/default.html');
+  config.addLayoutAlias('blog', 'layouts/blog.html');
+  config.addLayoutAlias('posts', 'layouts/posts.html');
+
   // Disable extended console output
-  eleventyConfig.setQuietMode(true);
+  config.setQuietMode(true);
   
   // Merge data instead of overriding
-  eleventyConfig.setDataDeepMerge(true);
+  config.setDataDeepMerge(true);
 
   // Disable automatic use of your .gitignore
-  eleventyConfig.setUseGitIgnore(false);
+  config.setUseGitIgnore(false);
 
   // Human readable date
-  eleventyConfig.addFilter('readableDate', (dateObj) => {
+  config.addFilter('readableDate', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('dd LLL yyyy');
   });
   // Current year
-  eleventyConfig.addShortcode('currentYear', () => `${new Date().getFullYear()}`);
+  config.addShortcode('currentYear', () => `${new Date().getFullYear()}`);
 
   // Support .yml extension in _data
-  eleventyConfig.addDataExtension('yml', (contents) => yaml.safeLoad(contents));
+  config.addDataExtension('yml', (contents) => yaml.safeLoad(contents));
 
   // Add Tailwind output CSS as watch target
-  eleventyConfig.addWatchTarget('./_tmp/static/css/style.css');
+  config.addWatchTarget('./_tmp/static/css/global.css');
 
   // Passthrough
-  eleventyConfig.addPassthroughCopy({
+  config.addPassthroughCopy({
     // Styles
-    './_tmp/static/css/style.css': './static/css/style.css',
+    './_tmp/static/css/global.css': './static/css/global.css',
 
     // Configs
     './src/admin/config.yml': './admin/config.yml',
@@ -78,7 +83,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // Minify HTML
-  eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+  config.addTransform('htmlmin', function (content, outputPath) {
     if (outputPath.endsWith('.html')) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
@@ -91,15 +96,19 @@ module.exports = function (eleventyConfig) {
   });
 
   // Filters
-  eleventyConfig.addFilter('md', function (content = '') {
+  config.addFilter('md', function (content = '') {
     return markdownIt({html: true}).render(content);
   });
 
   // Shortcodes
-  eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
-  eleventyConfig.addLiquidShortcode('image', imageShortcode);
-  eleventyConfig.addJavaScriptFunction('image', imageShortcode);
+  config.addNunjucksAsyncShortcode('image', imageShortcode);
+  config.addLiquidShortcode('image', imageShortcode);
+  config.addJavaScriptFunction('image', imageShortcode);
 
+  // Plugins
+  config.addPlugin(rssPlugin);
+
+  // Return
   return {
     // Directory settings
     dir: {
@@ -113,7 +122,7 @@ module.exports = function (eleventyConfig) {
     },
 
     // Templates
-    markdownTemplateEngine: 'njk',
+    markdownTemplateEngine: 'liquid',
     htmlTemplateEngine: 'njk',
     templateFormats: ['html', 'liquid', 'md', 'njk'],
   };

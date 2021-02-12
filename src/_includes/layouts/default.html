@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+  {% include "../partials/head.html" %}
+
+  <body class="px-4 mx-auto prose lg:prose-xl">
+    {% include "../partials/header.html" %}
+
+    <div id="main-content">
+      <h1 id="site-title">{{ title }}</h1>
+      {{ content | safe }}
+    </div>
+
+    {% if quicklinks %}
+    {% include "../partials/quicklinks.html" %}
+    {% endif %}
+
+    {% include "../partials/footer.html" %}
+
+    {% include "../partials/scripts.html" %}
+  </body>
+</html>

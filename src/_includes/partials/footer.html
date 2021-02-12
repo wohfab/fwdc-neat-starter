@@ -1,0 +1,9 @@
+<footer class="w-full py-4 mx-auto prose-sm prose text-center border-t-2 max-w-none">
+  &copy; {{ site.name | lower | safe }}. {% currentYear %}. {% if settings.credits
+  %}created by
+  <a href="{{ creator.url | safe }}" target="_blank" rel="noopener"
+    >{{ creator.name | safe }}</a
+  >.{% if creator.sourcecode %}
+  <a href="{{ creator.sourcecode | safe }}" target="_blank" rel="noopener">source code</a
+  >.{% endif %}{% endif %}
+</footer>

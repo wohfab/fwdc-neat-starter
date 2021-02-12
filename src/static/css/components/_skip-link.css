@@ -1,0 +1,9 @@
+@import '../utilities/visually-hidden.css';
+
+#skip-link:not(:focus) {
+  @apply visually-hidden;
+}
+
+#skip-link:focus {
+  @apply absolute inline-block p-6 font-bold leading-5 text-black no-underline bg-red-300 top-4 left-4;
+}

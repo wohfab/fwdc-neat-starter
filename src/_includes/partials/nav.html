@@ -1,0 +1,11 @@
+<nav aria-labelledby="{{ ariaLabel }}">
+  {% if navigation.links %}
+  <ul>
+    {% for link in navigation.links %}
+    <li>
+      <a href="{{ link.url }}">{{ link.text }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</nav>

@@ -1,0 +1,39 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'config.css';
+@import 'theme.css';
+@import 'typography.css';
+
+@import 'utilities/visually-hidden.css';
+@import 'utilities/wrapper.css';
+
+@import 'components/button.css';
+@import 'components/form.css';
+@import 'components/intro.css';
+@import 'components/nav.css';
+@import 'components/pagination.css';
+@import 'components/site-footer.css';
+@import 'components/site-header.css';
+@import 'components/skip-link.css';
+@import 'components/syntax-highlighting.css';
+@import 'components/video-player.css';
+
+/* Stack margin */
+#main-content * + * {
+  @apply mt-6;
+}
+
+.visually-hidden {
+  @apply absolute h-auto p-0 m-0 truncate border-0 whitespace-nowrap overflow-clip;
+  width: 1px;
+}
+
+#skip-link:not(:focus) {
+  @apply visually-hidden;
+}
+
+#skip-link:focus {
+  @apply absolute inline-block p-6 font-bold leading-5 text-black no-underline bg-red-300 top-4 left-4;
+}

@@ -1,0 +1,13 @@
+<a id="skip-link" href="#main-content"
+  >{% if site.lang == "de" %}Zum Inhalt springen{% else %}Skip to main content{% endif
+  %}</a
+>
+<header role="banner" class="w-full">
+  <div>
+    <a href="/">
+      <span class="visually-hidden">{{ site.name }}</span>
+      <span aria-hidden="true">{{ site.name }}</span>
+    </a>
+    {% set ariaLabel = 'navigation-main' %} {% include "./nav.html" %}
+  </div>
+</header>

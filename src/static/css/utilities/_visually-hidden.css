@@ -1,0 +1,4 @@
+.visually-hidden {
+  width: 1px;
+  @apply absolute h-auto p-0 m-0 truncate border-0 whitespace-nowrap overflow-clip;
+}

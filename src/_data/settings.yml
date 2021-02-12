@@ -1,13 +1,3 @@
 ---
-site:
-  name: FWDC Neat Starter
-  description: "Netlify CMS, Eleventy (11ty), Alpine JS, & Tailwind CSS Starter Template"
-  author: Fabian Wohlgemuth - digital creative.
-  url: "https://fwdc-neat-starter.netlify.app"
-  lang: en
-
-creator:
-  name: fwdc.
-  author: fabian wohlgemuth
-  url: "https://fabianwohlgemuth.de"
-  sourcecode: "https://github.com/wohfab/fwdc-neat-starter"
+credits: true
+favicon: "/images/favicon.ico"
