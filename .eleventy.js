@@ -1,15 +1,19 @@
-const yaml = require("js-yaml");
-const { DateTime } = require("luxon");
-const htmlmin = require("html-minifier");
-const markdownIt = require("markdown-it");
-const Image = require("@11ty/eleventy-img");
+// Constants
+const yaml = require('js-yaml');
+const {DateTime} = require('luxon');
+const htmlmin = require('html-minifier');
+const markdownIt = require('markdown-it');
+const Image = require('@11ty/eleventy-img');
 
+// Functions
+
+// Image shortcode
 async function imageShortcode(src, alt, sizes) {
   let metadata = await Image(src, {
     widths: [600, 900],
-    formats: ["webp", "jpeg"],
-    urlPath: "./static/img/",
-    outputDir: "./_site/static/img/",
+    formats: ['webp', 'jpeg'],
+    urlPath: './static/img/',
+    outputDir: './_site/static/img/',
     sharpJpegOptions: {
       quality: 70,
       progressive: true,
@@ -26,59 +30,56 @@ async function imageShortcode(src, alt, sizes) {
   let imageAttributes = {
     alt,
     sizes,
-    loading: "lazy",
-    decoding: "async",
+    loading: 'lazy',
+    decoding: 'async',
   };
 
-  // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
   return Image.generateHTML(metadata, imageAttributes);
 }
 
+// Eleventy settings
 module.exports = function (eleventyConfig) {
-  // Disable automatic use of your .gitignore
-  eleventyConfig.setUseGitIgnore(false);
-
+  // Disable extended console output
+  eleventyConfig.setQuietMode(true);
+  
   // Merge data instead of overriding
   eleventyConfig.setDataDeepMerge(true);
 
-  // human readable date
-  eleventyConfig.addFilter("readableDate", (dateObj) => {
-    return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat(
-      "dd LLL yyyy"
-    );
+  // Disable automatic use of your .gitignore
+  eleventyConfig.setUseGitIgnore(false);
+
+  // Human readable date
+  eleventyConfig.addFilter('readableDate', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('dd LLL yyyy');
   });
-  // current year
-  eleventyConfig.addShortcode(
-    "currentYear",
-    () => `${new Date().getFullYear()}`
-  );
+  // Current year
+  eleventyConfig.addShortcode('currentYear', () => `${new Date().getFullYear()}`);
 
-  // To Support .yml Extension in _data
-  // You may remove this if you can use JSON
-  eleventyConfig.addDataExtension("yml", (contents) =>
-    yaml.safeLoad(contents)
-  );
+  // Support .yml extension in _data
+  eleventyConfig.addDataExtension('yml', (contents) => yaml.safeLoad(contents));
 
-  // Add Tailwind Output CSS as Watch Target
-  eleventyConfig.addWatchTarget("./_tmp/static/css/style.css");
+  // Add Tailwind output CSS as watch target
+  eleventyConfig.addWatchTarget('./_tmp/static/css/style.css');
 
-  // Copy Static Files to /_Site
+  // Passthrough
   eleventyConfig.addPassthroughCopy({
-    "./_tmp/static/css/style.css": "./static/css/style.css",
-    "./src/admin/config.yml": "./admin/config.yml",
-    "./node_modules/alpinejs/dist/alpine.js": "./static/js/alpine.js",
+    // Styles
+    './_tmp/static/css/style.css': './static/css/style.css',
+
+    // Configs
+    './src/admin/config.yml': './admin/config.yml',
+
+    // Javascript
+    './node_modules/alpinejs/dist/alpine.js': './static/js/alpine.js',
+
+    // Images
+    './src/static/img': './static/img',
+    './src/favicon.ico': './favicon.ico',
   });
-
-  // Copy Image Folder to /_site
-  eleventyConfig.addPassthroughCopy("./src/static/img");
-
-  // Copy favicon to route of /_site
-  eleventyConfig.addPassthroughCopy("./src/favicon.ico");
 
   // Minify HTML
-  eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
-    // Eleventy 1.0+: use this.inputPath and this.outputPath instead
-    if (outputPath.endsWith(".html")) {
+  eleventyConfig.addTransform('htmlmin', function (content, outputPath) {
+    if (outputPath.endsWith('.html')) {
       let minified = htmlmin.minify(content, {
         useShortDoctype: true,
         removeComments: true,
@@ -89,20 +90,31 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
-  // FILTERS
-  eleventyConfig.addFilter("md", function (content = "") {
-    return markdownIt({ html: true }).render(content);
+  // Filters
+  eleventyConfig.addFilter('md', function (content = '') {
+    return markdownIt({html: true}).render(content);
   });
 
-  // SHORTCODES
-  eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
-  eleventyConfig.addLiquidShortcode("image", imageShortcode);
-  eleventyConfig.addJavaScriptFunction("image", imageShortcode);
+  // Shortcodes
+  eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode);
+  eleventyConfig.addLiquidShortcode('image', imageShortcode);
+  eleventyConfig.addJavaScriptFunction('image', imageShortcode);
 
   return {
+    // Directory settings
     dir: {
-      input: "src",
+      input: 'src',
+      outpur: '_site',
+
+      // Relative to above-set input folder
+      includes: '_includes',
+      layouts: '_includes',
+      data: '_data',
     },
-    htmlTemplateEngine: "njk",
+
+    // Templates
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
+    templateFormats: ['html', 'liquid', 'md', 'njk'],
   };
 };

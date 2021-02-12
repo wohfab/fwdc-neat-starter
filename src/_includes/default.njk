@@ -20,13 +20,13 @@
   </head>
   <body>
     <header id="header" class="w-full">
-      {% include "./partials/header.html" %}
+      {% include "./partials/header.njk" %}
     </header> 
     <div id="main-content">
       {{ content | safe }}
     </div>
     <footer id="footer" class="bottom-0 w-full py-4 text-center">
-      {% include "./partials/footer.html" %}
+      {% include "./partials/footer.njk" %}
     </foter>
 
     <script src="/static/js/alpine.js"></script>
