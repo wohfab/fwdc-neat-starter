@@ -2,10 +2,14 @@
   >{% if site.lang == "de" %}Zum Inhalt springen{% else %}Skip to main content{% endif
   %}</a
 >
-<header role="banner" class="w-full prose-pink">
-    <a href="/">
-      <span class="visually-hidden">{{ site.name }}</span>
-      <span aria-hidden="true">{{ site.name }}</span>
-    </a>
-    {% set ariaLabel = 'navigation-main' %} {% include "./nav.html" %}
+<header
+  role="banner"
+  class="flex justify-between w-full py-4 text-2xl sm:text-xl prose-pink"
+>
+  <a href="/">
+    <span class="visually-hidden">{{ site.name }}</span>
+    <span aria-hidden="true">{{ site.name }}</span>
+  </a>
+  {% if navigation.links %} {% set ariaLabel = 'navigation-main' %} {% include
+  "./nav.html" %} {% endif %}
 </header>

@@ -2,20 +2,15 @@
 <html lang="{{ site.lang }}" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
   {% include "../partials/head.html" %}
 
-  <body class="px-4 mx-auto prose prose-lg bg-white xl:prose-xl dark:bg-gray-900 dark:prose-light">
+  <body class="max-w-screen-md px-4 mx-auto bg-yellow-50 dark:bg-gray-900">
     {% include "../partials/header.html" %}
 
-    <div id="main-content">
-      <h1 id="site-title">{{ title }}</h1>
-      {{ content | safe }}
+    <div id="main-content" class="prose prose-lg xl:prose-xl dark:prose-light">
+      <h1 id="site-title" class="pl-4 border-l-8 border-pink-600">{{ title }}</h1>
+      {{ content | safe }} {% if quicklinks %} {% include "../partials/quicklinks.html" %}
+      {% endif %}
     </div>
 
-    {% if quicklinks %}
-    {% include "../partials/quicklinks.html" %}
-    {% endif %}
-
-    {% include "../partials/footer.html" %}
-
-    {% include "../partials/scripts.html" %}
+    {% include "../partials/footer.html" %} {% include "../partials/scripts.html" %}
   </body>
 </html>

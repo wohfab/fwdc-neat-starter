@@ -65,12 +65,12 @@ module.exports = function (config) {
   config.addDataExtension('yml', (contents) => yaml.safeLoad(contents));
 
   // Add Tailwind output CSS as watch target
-  config.addWatchTarget('./_tmp/static/css/global.css');
+  config.addWatchTarget('./_tmp/static/css');
 
   // Passthrough
   config.addPassthroughCopy({
     // Styles
-    './_tmp/static/css/global.css': './static/css/global.css',
+    './_tmp/static/css': './static/css',
 
     // Configs
     './src/admin/config.yml': './admin/config.yml',

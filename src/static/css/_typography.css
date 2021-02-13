@@ -4,8 +4,3 @@ h2,
 h3 {
   max-width: 16ch;
 }
-p,
-li,
-blockquote {
-  max-width: 65ch;
-}

@@ -16,12 +16,6 @@ module.exports = {
       width: {
         '1px': '1px',
       },
-      // fontFamily: {
-      //   heading: [''],
-      //   sans: [''],
-      //   mono: [''],
-      //   serif: [''],
-      // },
       typography: (theme) => ({
         DEFAULT: {
           css: {
@@ -29,7 +23,7 @@ module.exports = {
               color: theme('colors.pink.600'),
             },
             em: {
-              color: theme('colors.pink.600'),
+              color: theme('colors.pink.700'),
             },
             footer: {
               color: theme('colors.pink.600'),
@@ -50,10 +44,10 @@ module.exports = {
                 color: theme('colors.gray.200'),
               },
               strong: {
-                color: theme('colors.pink.600'),
+                color: theme('colors.pink.500'),
               },
               em: {
-                color: theme('colors.pink.600'),
+                color: theme('colors.pink.500'),
               },
               'ol > li::before': {
                 color: theme('colors.gray.400'),

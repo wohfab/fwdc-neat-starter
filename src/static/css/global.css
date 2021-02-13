@@ -1,32 +1,37 @@
+/* @import '_config.css'; */
+/* @import '_theme.css'; */
+@import '_typography.css';
+
+/* @import 'utilities/_visually-hidden.css'; */
+/* @import 'utilities/_wrapper.css'; */
+
+/* @import 'components/_button.css'; */
+/* @import 'components/_form.css'; */
+/* @import 'components/_intro.css'; */
+/* @import 'components/_nav.css'; */
+/* @import 'components/_pagination.css'; */
+/* @import 'components/_site-footer.css'; */
+/* @import 'components/_site-header.css'; */
+/* @import 'components/_skip-link.css'; */
+@import 'components/_syntax-highlighting.css';
+/* @import 'components/_video-player.css'; */
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@import 'config.css';
-@import 'theme.css';
-@import 'typography.css';
 
-@import 'utilities/visually-hidden.css';
-@import 'utilities/wrapper.css';
-
-@import 'components/button.css';
-@import 'components/form.css';
-@import 'components/intro.css';
-@import 'components/nav.css';
-@import 'components/pagination.css';
-@import 'components/site-footer.css';
-@import 'components/site-header.css';
-@import 'components/skip-link.css';
-@import 'components/syntax-highlighting.css';
-@import 'components/video-player.css';
-
-/* Stack margin */
-#main-content > * + * {
-  margin-top: 1em;
-}
+/* Stack margin
+*
+* #main-content > * + * {
+*   margin-top: 1em;
+* }
+*
+*/
 
 .visually-hidden {
-  @apply absolute h-auto p-0 m-0 truncate border-0 whitespace-nowrap overflow-clip w-1px;
+  width: 1px;
+  @apply absolute h-auto p-0 m-0 truncate border-0 whitespace-nowrap overflow-clip;
 }
 
 #skip-link:not(:focus) {
@@ -35,4 +40,12 @@
 
 #skip-link:focus {
   @apply absolute inline-block p-6 font-bold leading-5 text-black no-underline bg-red-300 top-4 left-4;
+}
+
+#main-content a {
+  @apply no-underline border-b-2 border-pink-600;
+}
+
+#main-content p {
+  @apply font-serif;
 }

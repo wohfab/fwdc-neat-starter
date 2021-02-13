@@ -1,4 +1,4 @@
-@import '../utilities/visually-hidden.css';
+@import '../utilities/_visually-hidden.css';
 
 #skip-link:not(:focus) {
   @apply visually-hidden;
