@@ -5,6 +5,7 @@ const htmlmin = require('html-minifier');
 const markdownIt = require('markdown-it');
 const Image = require('@11ty/eleventy-img');
 const rssPlugin = require('@11ty/eleventy-plugin-rss');
+const pluginSass = require('eleventy-plugin-sass');
 
 
 // Image shortcode
@@ -107,6 +108,7 @@ module.exports = function (config) {
 
   // Plugins
   config.addPlugin(rssPlugin);
+  config.addPlugin(pluginSass);
 
   // Return
   return {

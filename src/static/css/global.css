@@ -21,13 +21,12 @@
 @import 'components/video-player.css';
 
 /* Stack margin */
-#main-content * + * {
-  @apply mt-6;
+#main-content > * + * {
+  margin-top: 1em;
 }
 
 .visually-hidden {
-  @apply absolute h-auto p-0 m-0 truncate border-0 whitespace-nowrap overflow-clip;
-  width: 1px;
+  @apply absolute h-auto p-0 m-0 truncate border-0 whitespace-nowrap overflow-clip w-1px;
 }
 
 #skip-link:not(:focus) {

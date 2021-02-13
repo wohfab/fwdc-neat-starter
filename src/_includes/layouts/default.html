@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang }}">
+<html lang="{{ site.lang }}" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
   {% include "../partials/head.html" %}
 
-  <body class="px-4 mx-auto prose lg:prose-xl">
+  <body class="px-4 mx-auto prose prose-lg bg-white xl:prose-xl dark:bg-gray-900 dark:prose-light">
     {% include "../partials/header.html" %}
 
     <div id="main-content">
