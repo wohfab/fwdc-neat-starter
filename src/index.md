@@ -14,11 +14,7 @@ prism: true
 Embeds a Spotify Share Code by _Spotify URI_.
 
 ```js
-{
-  {
-    ('{% getSpotifyCode id, classes, createLink, showSpotifyLogo, fileType, bg, color, size, mediaType %}');
-  }
-}
+{{('{% getSpotifyCode id, classes, createLink, showSpotifyLogo, fileType, bg, color, size, mediaType %}');}}
 ```
 
 {% getSpotifyCode '4x5wzixdnGpq36kopc3oju', 'mx-auto h-auto w-64 fill-current text-pink-600' %}
