@@ -1,6 +1,6 @@
 # FWDC Neat Starter
 
-Starter Template for **N**etlify CMS, **E**leventy, **A**lphine JS & **T**ailwind CSS.
+Starter Template for **N**etlify CMS, **E**leventy, **A**lphine JS & **T**ailwind CSS heavily modified by [fabian wohlgemuth](https://fabianwohlgemuth.de)
 
 Check the Live Demo on Netlify: [![Netlify Status](https://api.netlify.com/api/v1/badges/ad35259d-e9f7-49f9-a8d8-ee342d8bb2e3/deploy-status)](https://app.netlify.com/sites/fwdc-neat-starter/deploys) or [deploy to Netlify](https://app.netlify.com/start/deploy?repository=https://github.com/wohfab/fwdc-neat-starter) yourself.
 
