@@ -7,8 +7,7 @@
 
     <div id="main-content" class="prose prose-lg xl:prose-xl dark:prose-light">
       <h1 id="site-title" class="pl-4 border-l-8 border-pink-600">{{ title }}</h1>
-      {{ content | safe }} {% if quicklinks %} {% include "../partials/quicklinks.html" %}
-      {% endif %}
+      {{ content | safe }}
     </div>
 
     {% include "../partials/footer.html" %} {% include "../partials/scripts.html" %}
