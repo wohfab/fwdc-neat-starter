@@ -33,8 +33,5 @@ size = 1000 // Int, Size in px
 mediaType = 'track' // Str, Media Type (e.g. playlist)
 ```
 
-Example:
-
-
 
 ### Quicklinks
