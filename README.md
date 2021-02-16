@@ -28,13 +28,14 @@ npm run start
 
 This project is a fork of the NEAT-starter by Surjith S M ([@surjithctly](https://surjithctly.in/)). They also wrote [detailed instructions on their blog](https://blog.surjithctly.in/neat-stack-create-a-static-website-with-netlify-cms-eleventy-alpinejs-and-tailwindcss).
 
-## Roadmap
+## Roadmap ideas
 
 - A11y check
 - i18n integration
 - Deep Netlify CMS integration with more customization functions
 - Shortcode collection
   - Spotify Share Code
+    - Use API token to get currently playing songs
 - Use Design Token file for color variables etc.
 - Extend blog functionality
   - Custom title/links/etc.
