@@ -1,4 +1,26 @@
 body :not(pre) > code[class*='language-'],
 body pre[class*='language-'] {
-  @apply bg-gray-800;
+  @apply bg-gray-900;
+}
+
+pre {
+  counter-reset: lineNumber;
+}
+
+code .highlight-line:before {
+  -webkit-user-select: none;
+  border-right: 1px solid #404040;
+  color: #858585;
+  content: counter(lineNumber);
+  counter-increment: lineNumber;
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+  margin-right: 1.2em;
+  padding-right: 1.2em;
+  text-align: right;
+  width: 2.4em;
+}
+
+code span.token.comment {
+  color: lightcyan;
 }

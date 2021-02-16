@@ -25,12 +25,6 @@ module.exports = {
             em: {
               color: theme('colors.pink.700'),
             },
-            footer: {
-              color: theme('colors.pink.600'),
-            },
-            'footer a': {
-              color: theme('colors.pink.600'),
-            },
           },
         },
         light: {

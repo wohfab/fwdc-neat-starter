@@ -95,7 +95,7 @@ async function getSpotifyCode(
   }
 
   // Output
-  console.log(output);
+  // console.log(output);
   return output.trim().replace(/\r?\n|\r/g, '');
 }
 
@@ -177,7 +177,9 @@ module.exports = function (config) {
     selector: 'img',
   });
   config.addPlugin(svgContents);
-  config.addPlugin(syntaxHighlight);
+  config.addPlugin(syntaxHighlight, {
+    alwaysWrapLineHighlights: true
+  });
 
   // Return
   return {
