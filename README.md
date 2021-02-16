@@ -31,12 +31,20 @@ This project is a fork of the NEAT-starter by Surjith S M ([@surjithctly](https:
 ## Roadmap ideas
 
 - A11y check
+- Check [Every Layout](https://every-layout.dev/) for possible improvements
 - i18n integration
-- Deep Netlify CMS integration with more customization functions
+- Extend dark mode including [`tailwindcss-typography` dark mode](https://github.com/tailwindlabs/tailwindcss-typography/issues/69)
+- Deep Netlify CMS integration with full customization functions, including 'default' texts
+- Google Font integration with local copy
 - Shortcode collection
   - Spotify Share Code
-    - Use API token to get currently playing songs
+    - Make using the options easier
+    - Check if all options are available in API
+    - Possibility to download to `.svg` file instead of direct integration. Could work together with [`eleventy-plugin-svg-contents`](https://www.npmjs.com/package/eleventy-plugin-svg-contents) or [`eleventy-plugin-local-images`](https://github.com/robb0wen/eleventy-plugin-local-images#readme) later
+    - Simplify `.svg`. Maybe with custom stroke style
+    - Use Spotify Dev API token to get currently playing songs (ENV)
 - Use Design Token file for color variables etc.
 - Extend blog functionality
   - Custom title/links/etc.
+  - Tag and Category system
 - `package.json` clean up dependencies
