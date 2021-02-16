@@ -51,3 +51,4 @@ This project is a fork of the NEAT-starter by Surjith S M ([@surjithctly](https:
 - Evaluate PWA optionality (including a switch to turn on/off)
 - Host Speedlify
 - Make Syntax Highlighting local instead of CDN (Prism)
+- Make Netlify Identification optional to remove `.js` snippet
