@@ -48,3 +48,6 @@ This project is a fork of the NEAT-starter by Surjith S M ([@surjithctly](https:
   - Custom title/links/etc.
   - Tag and Category system
 - `package.json` clean up dependencies
+- Evaluate PWA optionality (including a switch to turn on/off)
+- Host Speedlify
+- Make Syntax Highlighting local instead of CDN (Prism)
