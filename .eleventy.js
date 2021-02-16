@@ -91,7 +91,7 @@ async function getSpotifyCode(
   // Create surrounding <a></a> tags with link to Media
   if (createLink) {
     link = ['<a href="https://open.spotify.com', mediaType, id].join('/');
-    output = link + '" rel="noopener" target="_blank">' + output + '</a>';
+    output = link + '" rel="noopener" target="_blank" title="Open in Spotify"><span class="sr-only">Open in Spotify</span>' + output + '</a>';
   }
 
   // Output
