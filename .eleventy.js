@@ -42,6 +42,20 @@ async function imageShortcode(src, alt, sizes) {
   return Image.generateHTML(metadata, imageAttributes);
 }
 
+async function audioShortcode(src, type, classes='', useGoogleDrive=false) {
+  var link = src;
+  if(useGoogleDrive) {
+    link = 'https://drive.google.com/uc?id=' + link;
+  }
+
+  return `
+  <audio controls class="${classes}">
+    <source src="${link}" type="audio/${type}">
+    <p>Your browser does not support the audio element. Please <a href="${link}">download the file</a> instead.</p>
+  </audio>
+  `;
+}
+
 async function getSpotifyCode(
   id,
   classes = '',
@@ -167,6 +181,10 @@ module.exports = function (config) {
   config.addNunjucksAsyncShortcode('getSpotifyCode', getSpotifyCode);
   config.addLiquidShortcode('getSpotifyCode', getSpotifyCode);
   config.addJavaScriptFunction('getSpotifyCode', getSpotifyCode);
+
+  config.addNunjucksAsyncShortcode('audio', audioShortcode);
+  config.addLiquidShortcode('audio', audioShortcode);
+  config.addJavaScriptFunction('audio', audioShortcode);
 
   // Plugins
   config.addPlugin(rssPlugin);
